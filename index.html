@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importadora Agroindustrial - Catálogo B2B</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado y Navegación -->
+    <header>
+        <div class="header-container">
+            <div class="logo">AGROIND <span>BOLIVIA</span></div>
+            <nav>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#marcas">Marcas</a>
+                <a href="#logistica">Logística</a>
+                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20solicitar%20asesoria%20tecnica" target="_blank" class="nav-btn-ws">Contacto Directo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Equipamiento y Repuestos Industriales Directos de Fábrica</h1>
+            <p>Importación directa desde Brasil bajo acuerdo ACE 36 (GA 0%). Stock crítico en Santa Cruz con entrega <strong>hasta en 48 horas</strong> a nivel nacional.</p>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar por código, repuesto o marca (ej. SKF, Gates, Alfa Laval, Molienda)..." onkeyup="filtrarProductos()">
+            </div>
+        </div>
+    </section>
+
+    <!-- Resumen de Beneficios / Tiempos -->
+    <section id="logistica" class="info-banner">
+        <div class="info-card">
+            <div class="info-icon">⚡</div>
+            <h3>Entrega hasta 48h</h3>
+            <p>Stock local de repuestos críticos de alta rotación (Rodamientos, Correas, Piezas de Molienda).</p>
+        </div>
+        <div class="info-card">
+            <div class="info-icon">✈️</div>
+            <h3>Importación Express (3-7 Días)</h3>
+            <p>Menor cuantía para repuestos de emergencia de centrífugas, bombas y sellos especiales.</p>
+        </div>
+        <div class="info-card">
+            <div class="info-icon">🚛</div>
+            <h3>Importación Directa (12-20 Días)</h3>
+            <p>Tránsito terrestre desde Brasil directo a tu planta para maquinaria pesada, molinos y colectores.</p>
+        </div>
+    </section>
+
+    <!-- Contenedor del Catálogo -->
+    <section id="catalogo" class="catalog-container">
+        <h2>Catálogo B2B de Equipamiento y Repuestos</h2>
+        <p class="subtitle">Selecciona una categoría o cotiza directamente con nuestros ingenieros</p>
+        
+        <!-- Botones de Filtro -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filtrarCategoria('todos')">Todos</button>
+            <button class="filter-btn" onclick="filtrarCategoria('molienda')">Molienda y Polvo</button>
+            <button class="filter-btn" onclick="filtrarCategoria('transmision')">Rodamientos y Correas</button>
+            <button class="filter-btn" onclick="filtrarCategoria('bombas')">Bombas y Centrífugas</button>
+            <button class="filter-btn" onclick="filtrarCategoria('potencia')">Potencia y Control</button>
+        </div>
+
+        <!-- Rejilla de Productos -->
+        <div class="product-grid" id="productGrid">
+            
+            <!-- PRODUCTO 1: RODAMIENTOS -->
+            <div class="product-card" data-category="transmision">
+                <span class="tag stock">Entrega hasta 48h</span>
+                <h3>Rodamientos de Serie Pesada y Chumaceras</h3>
+                <p class="brands"><strong>Marcas:</strong> SKF | FAG | TIMKEN | INA | BGL</p>
+                <p class="desc">Elementos rodantes de alta precisión, chumaceras y manguitos de fijación BGL para soportar altas cargas mecánicas.</p>
+                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20rodamientos%20y%20manguitos%20de%20fijacion" target="_blank" class="btn-ws">
+                    Cotizar por WhatsApp
+                </a>
+            </div>
+
+            <!-- PRODUCTO 2: CORREAS -->
+            <div class="product-card" data-category="transmision">
+                <span class="tag stock">Entrega hasta 48h</span>
+                <h3>Correas Industriales de Transmisión</h3>
+                <p class="brands"><strong>Marcas:</strong> GATES | OPTIBELT | CONTINENTAL</p>
+                <p class="desc">Correas en V, sincrónicas y dentadas de alta tracción para molinos, elevadores, mezcladoras y ventiladores.</p>
+                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20correas%20de%20transmision%20industrial" target="_blank" class="btn-ws">
+                    Cotizar por WhatsApp
+                </a>
+            </div>
+
+            <!-- PRODUCTO 3: REPUESTOS MOLIENDA -->
+            <div class="product-card" data-category="molienda">
+                <span class="tag stock">Entrega hasta 48h</span>
+                <h3>Martillos Tratados y Cribas/Mallas</h3>
+                <p class="brands"><strong>Especialidad:</strong> Acero Antidesgaste Heavy Duty</p>
+                <p class="desc">Piezas de desgaste continuo para molinos de martillo de grano y plantas de alimento balanceado.</p>
+                <a href="https://wa.me/59100000000?text=Hola,%20requiero%20cotizar%20martillos%20y%20cribas%20para%20molino" target="_blank" class="btn-ws">
+                    Cotizar por WhatsApp
+                </a>
+            </div>
+
+            <!-- PRODUCTO 4: COLECTORES DE POLVO -->
+            <div class="product-card" data-category="molienda">
+                <span class="tag import">Importación Directa</span>
+                <h3>Colectores de Polvo y Aspiración Industrial</h3>
+                <p class="brands"><strong>Componentes:</strong> Filtros de Mangas, Válvulas Rotativas</p>
+                <p class="desc">Sistemas de captura de fino, mangas filtrantes, canastillos y esclusas rotativas para control de emisiones y norma ATEX.</p>
+                <a href="https://wa.me/59100000000?text=Hola,%20requiero%20cotizacion%20y%20asesoria%20para%20colectores%20de%20polvo" target="_blank" class="btn-ws">
+                    Cotizar por WhatsApp
+                </a>
+            </div>
+
+            <!-- PRODUCTO 5: CENTRÍFUGAS -->
+            <div class="product-card" data-category="bombas">
+                <span class="tag import">Importación Directa</span>
+                <h3>Centrífugas Separadoras de Alta Velocidad</h3>
+                <p class="brands"><strong>Líderes Mundiales:</strong> ALFA LAVAL | PIERALISI</p>
+                <p class="desc">Equipos y repuestos para separación líquido-sólido, clarificación y extracción de aceites agroindustriales.</p>
+                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20equipos/repuestos%20de%20centrifugas%20separadoras" target="_blank" class="btn-ws">
+                    Cotizar por WhatsApp
+                </a>
+            </div>
+
+            <!-- PRODUCTO 6: BOMBAS -->
+            <div class="product-card" data-category="bombas">
+                <span class="tag import">Importación Directa</span>
+                <h3>Sistemas de Bombeo Industrial y Térmico</h3>
+                <p class="brands"><strong>Marcas:</strong> OMEL | FABO BOMBAS | MULTISTEEL</p>
+                <p class="desc">Bombas para transferencia de agua, aceites pesados, condensados y manejo de vapor en calderas y plantas.</p>
+                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20bombas%20industriales%20OMEL/Fabo/Multisteel" target="_blank" class="btn-ws">
+                    Cotizar por WhatsApp
+                </a>
+            </div>
+
+            <!-- PRODUCTO 7: POTENCIA -->
+            <div class="product-card" data-category="potencia">
+                <span class="tag import">Importación Directa</span>
+                <h3>Motores Trifásicos, Reductores y Sensórica</h3>
+                <p class="brands"><strong>Línea Industrial:</strong> WEG | Schneider | Danfoss</p>
+                <p class="desc">Motores de alta eficiencia, reductores mecánicos, variadores de frecuencia (VFD) y sensores de nivel/inductivos.</p>
+                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20motores,%20reductores%20o%20sensorica" target="_blank" class="btn-ws">
+                    Cotizar por WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección de Marcas Representadas -->
+    <section id="marcas" class="brands-section">
+        <h2>Marcas Oficiales e Importaciones Directas</h2>
+        <div class="brands-grid">
+            <div class="brand-item">SKF</div>
+            <div class="brand-item">FAG</div>
+            <div class="brand-item">TIMKEN</div>
+            <div class="brand-item">GATES</div>
+            <div class="brand-item">OPTIBELT</div>
+            <div class="brand-item">CONTINENTAL</div>
+            <div class="brand-item">ALFA LAVAL</div>
+            <div class="brand-item">PIERALISI</div>
+            <div class="brand-item">OMEL</div>
+            <div class="brand-item">FABO BOMBAS</div>
+            <div class="brand-item">BGL</div>
+            <div class="brand-item">MULTISTEEL</div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2026 Importadora Agroindustrial - Santa Cruz, Bolivia. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

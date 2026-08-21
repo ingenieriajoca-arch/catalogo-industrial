@@ -1,0 +1,294 @@
+/* ESTILOS GENERALES INDUSTRIALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #2c3e50;
+}
+
+/* ENCABEZADO */
+header {
+    background-color: #1a252f;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #e67e22;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #e67e22;
+}
+
+.nav-btn-ws {
+    background-color: #27ae60;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: white !important;
+}
+
+.nav-btn-ws:hover {
+    background-color: #219150 !important;
+}
+
+/* BANNER PRINCIPAL / HERO */
+.hero {
+    background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.85)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    font-weight: 900;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #bdc3c7;
+}
+
+.search-box input {
+    width: 90%;
+    max-width: 650px;
+    padding: 15px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* INFORMACIÓN Y TIEMPOS */
+.info-banner {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: -30px auto 40px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    border-top: 4px solid #e67e22;
+}
+
+.info-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.info-card h3 {
+    font-size: 1.1rem;
+    color: #1a252f;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* SECCIÓN CATÁLOGO */
+.catalog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.catalog-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #1a252f;
+}
+
+.subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: white;
+    border: 1px solid #bdc3c7;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: #1a252f;
+    color: white;
+    border-color: #1a252f;
+}
+
+/* REJILLA DE PRODUCTOS */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s;
+    border: 1px solid #eef2f5;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.tag {
+    align-self: flex-start;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.tag.stock {
+    background-color: #e8f8f5;
+    color: #117a65;
+}
+
+.tag.import {
+    background-color: #fef9e7;
+    color: #b7950b;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.product-card .brands {
+    font-size: 0.85rem;
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+.product-card .desc {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.btn-ws {
+    background-color: #27ae60;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    display: block;
+}
+
+.btn-ws:hover {
+    background-color: #219150;
+}
+
+/* SECCIÓN MARCAS */
+.brands-section {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.brands-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 30px auto 0 auto;
+}
+
+.brand-item {
+    background: #f4f6f9;
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #34495e;
+    border: 1px solid #e2e8f0;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    background-color: #111827;
+    color: #9ca3af;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+}

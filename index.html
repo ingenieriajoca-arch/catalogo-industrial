@@ -1,179 +1,263 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Importadora Agroindustrial - Catálogo B2B</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Importadora Agroindustrial - Catálogo B2B</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f2b48;
+      --secondary: #1a5384;
+      --accent: #f39c12;
+      --dark: #1e252b;
+      --light: #f4f7f9;
+      --white: #ffffff;
+      --border: #e1e8ed;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+
+    /* Encabezado */
+    header { background: var(--primary); color: var(--white); padding: 1rem 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    .header-container { max-width: 1250px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.4rem; font-weight: 900; }
+    .logo span { color: var(--accent); }
+    nav { display: flex; gap: 20px; align-items: center; }
+    nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+    nav a:hover { color: var(--accent); }
+    .btn-ws-nav { background: #25d366; color: white !important; padding: 8px 15px; border-radius: 5px; font-weight: 700; }
+
+    /* Hero / Banner */
+    .hero { background: linear-gradient(rgba(15, 43, 72, 0.9), rgba(15, 43, 72, 0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1350&q=80') center/cover; color: var(--white); padding: 60px 5% 50px; text-align: center; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 900; }
+    .hero p { font-size: 1.1rem; max-width: 800px; margin: 0 auto 20px; color: #d0d7de; }
+
+    /* Contenedor Principal */
+    .container { width: 92%; max-width: 1250px; margin: 40px auto; }
+    .section-title { text-align: center; font-size: 1.8rem; color: var(--primary); margin-bottom: 30px; position: relative; font-weight: 700; }
+    .section-title::after { content: ''; width: 50px; height: 3px; background: var(--accent); display: block; margin: 8px auto 0; }
+
+    /* Buscador y Filtros */
+    .catalog-controls { background: var(--white); padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; }
+    .search-bar { flex: 1; min-width: 280px; }
+    .search-bar input { width: 100%; padding: 10px 15px; border: 1px solid var(--border); border-radius: 5px; outline: none; font-size: 1rem; }
+    .filter-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+    .filter-btn { background: var(--light); border: 1px solid var(--border); padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 600; color: var(--dark); transition: all 0.3s; }
+    .filter-btn.active, .filter-btn:hover { background: var(--secondary); color: var(--white); border-color: var(--secondary); }
+
+    /* Grid del Catálogo */
+    .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+    .product-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .product-img { width: 100%; height: 180px; background: #eef2f5; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #888; font-weight: bold; border-bottom: 1px solid var(--border); }
+    .product-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+    .product-tag { font-size: 0.75rem; background: #e1f0ff; color: var(--secondary); padding: 3px 8px; border-radius: 3px; font-weight: 700; width: fit-content; margin-bottom: 8px; text-transform: uppercase; }
+    .product-title { font-size: 1.1rem; color: var(--primary); margin-bottom: 8px; font-weight: 700; }
+    .product-desc { font-size: 0.88rem; color: #555; margin-bottom: 15px; flex-grow: 1; }
+    .btn-ws { background: #25d366; color: white; text-align: center; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: background 0.3s; }
+    .btn-ws:hover { background: #1eb954; }
+
+    /* Marcas */
+    .brands-section { background: var(--white); padding: 30px; border-radius: 8px; margin: 40px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center; }
+    .brands-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 15px; }
+    .brand-chip { background: var(--light); border: 1px solid var(--border); padding: 8px 18px; border-radius: 20px; font-weight: bold; color: var(--primary); font-size: 0.85rem; }
+
+    /* Ingeniería y Servicios */
+    .services-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+    .service-box { background: var(--white); padding: 25px; border-radius: 8px; border-top: 4px solid var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .service-box h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.1rem; font-weight: 700; }
+    .service-box ul { list-style: square; padding-left: 18px; font-size: 0.9rem; color: #444; }
+
+    /* Footer */
+    footer { background: var(--primary); color: var(--white); padding: 40px 5% 20px; margin-top: 60px; text-align: center; }
+    footer p { color: #b0c4de; font-size: 0.9rem; margin-bottom: 10px; }
+  </style>
 </head>
 <body>
 
-    <!-- Encabezado y Navegación -->
-    <header>
-        <div class="header-container">
-            <div class="logo">AGROIND <span>BOLIVIA</span></div>
-            <nav>
-                <a href="#catalogo">Catálogo</a>
-                <a href="#marcas">Marcas</a>
-                <a href="#logistica">Logística</a>
-                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20solicitar%20asesoria%20tecnica" target="_blank" class="nav-btn-ws">Contacto Directo</a>
-            </nav>
-        </div>
-    </header>
+  <!-- Navegación -->
+  <header>
+    <div class="header-container">
+      <div class="logo">AGROIND <span>BOLIVIA</span></div>
+      <nav>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#marcas">Marcas</a>
+        <a href="#ingenieria">Ingeniería & Soporte</a>
+        <a href="https://wa.me/59100000000?text=Hola,%20deseo%20solicitar%20asesoria%20tecnica" class="btn-ws-nav" target="_blank">Contacto Directo</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Banner Principal -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Equipamiento y Repuestos Industriales Directos de Fábrica</h1>
-            <p>Importación directa desde Brasil bajo acuerdo ACE 36 (GA 0%). Stock crítico en Santa Cruz con entrega <strong>hasta en 48 horas</strong> a nivel nacional.</p>
-            
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Buscar por código, repuesto o marca (ej. SKF, Gates, Alfa Laval, Molienda)..." onkeyup="filtrarProductos()">
-            </div>
-        </div>
-    </section>
+  <!-- Banner -->
+  <section class="hero">
+    <h1>Catálogo de Importación B2B & Repuestos Industriales</h1>
+    <p>Soluciones integrales, suministro e importación de componentes de alta calidad con respaldo técnico y de ingeniería.</p>
+  </section>
 
-    <!-- Resumen de Beneficios / Tiempos -->
-    <section id="logistica" class="info-banner">
-        <div class="info-card">
-            <div class="info-icon">⚡</div>
-            <h3>Entrega hasta 48h</h3>
-            <p>Stock local de repuestos críticos de alta rotación (Rodamientos, Correas, Piezas de Molienda).</p>
-        </div>
-        <div class="info-card">
-            <div class="info-icon">✈️</div>
-            <h3>Importación Express (3-7 Días)</h3>
-            <p>Menor cuantía para repuestos de emergencia de centrífugas, bombas y sellos especiales.</p>
-        </div>
-        <div class="info-card">
-            <div class="info-icon">🚛</div>
-            <h3>Importación Directa (12-20 Días)</h3>
-            <p>Tránsito terrestre desde Brasil directo a tu planta para maquinaria pesada, molinos y colectores.</p>
-        </div>
-    </section>
+  <div class="container">
 
-    <!-- Contenedor del Catálogo -->
-    <section id="catalogo" class="catalog-container">
-        <h2>Catálogo B2B de Equipamiento y Repuestos</h2>
-        <p class="subtitle">Selecciona una categoría o cotiza directamente con nuestros ingenieros</p>
-        
-        <!-- Botones de Filtro -->
+    <!-- Sección Catálogo -->
+    <section id="catalogo">
+      <h2 class="section-title">Catálogo de Productos e Insumos</h2>
+      
+      <!-- Buscador y Filtros -->
+      <div class="catalog-controls">
+        <div class="search-bar">
+          <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Buscar por repuesto, marca o aplicación...">
+        </div>
         <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filtrarCategoria('todos')">Todos</button>
-            <button class="filter-btn" onclick="filtrarCategoria('molienda')">Molienda y Polvo</button>
-            <button class="filter-btn" onclick="filtrarCategoria('transmision')">Rodamientos y Correas</button>
-            <button class="filter-btn" onclick="filtrarCategoria('bombas')">Bombas y Centrífugas</button>
-            <button class="filter-btn" onclick="filtrarCategoria('potencia')">Potencia y Control</button>
+          <button class="filter-btn active" onclick="filterCategory('all')">Todos</button>
+          <button class="filter-btn" onclick="filterCategory('rodamientos')">Rodamientos</button>
+          <button class="filter-btn" onclick="filterCategory('transmision')">Transmisión</button>
+          <button class="filter-btn" onclick="filterCategory('hidraulica')">Hidráulica/Neumática</button>
+          <button class="filter-btn" onclick="filterCategory('automatizacion')">Automatización</button>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Productos -->
+      <div class="catalog-grid" id="catalogGrid">
+        
+        <div class="product-card" data-category="rodamientos">
+          <div class="product-img">REPUESTO / COMPONENTE</div>
+          <div class="product-info">
+            <span class="product-tag">Rodamientos</span>
+            <div class="product-title">Rodamientos de Alta Precisión y Chumaceras</div>
+            <div class="product-desc">Suministro e importación directa de rodamientos de rodillos, bolas y chumaceras para alta carga e industrias pesadas.</div>
+            <a href="https://wa.me/59100000000?text=Hola,%20quisiera%20cotizar:%20Rodamientos%20de%20Alta%20Precisión" class="btn-ws" target="_blank">Cotizar por WhatsApp</a>
+          </div>
         </div>
 
-        <!-- Rejilla de Productos -->
-        <div class="product-grid" id="productGrid">
-            
-            <!-- PRODUCTO 1: RODAMIENTOS -->
-            <div class="product-card" data-category="transmision">
-                <span class="tag stock">Entrega hasta 48h</span>
-                <h3>Rodamientos de Serie Pesada y Chumaceras</h3>
-                <p class="brands"><strong>Marcas:</strong> SKF | FAG | TIMKEN | INA | BGL</p>
-                <p class="desc">Elementos rodantes de alta precisión, chumaceras y manguitos de fijación BGL para soportar altas cargas mecánicas.</p>
-                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20rodamientos%20y%20manguitos%20de%20fijacion" target="_blank" class="btn-ws">
-                    Cotizar por WhatsApp
-                </a>
-            </div>
-
-            <!-- PRODUCTO 2: CORREAS -->
-            <div class="product-card" data-category="transmision">
-                <span class="tag stock">Entrega hasta 48h</span>
-                <h3>Correas Industriales de Transmisión</h3>
-                <p class="brands"><strong>Marcas:</strong> GATES | OPTIBELT | CONTINENTAL</p>
-                <p class="desc">Correas en V, sincrónicas y dentadas de alta tracción para molinos, elevadores, mezcladoras y ventiladores.</p>
-                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20correas%20de%20transmision%20industrial" target="_blank" class="btn-ws">
-                    Cotizar por WhatsApp
-                </a>
-            </div>
-
-            <!-- PRODUCTO 3: REPUESTOS MOLIENDA -->
-            <div class="product-card" data-category="molienda">
-                <span class="tag stock">Entrega hasta 48h</span>
-                <h3>Martillos Tratados y Cribas/Mallas</h3>
-                <p class="brands"><strong>Especialidad:</strong> Acero Antidesgaste Heavy Duty</p>
-                <p class="desc">Piezas de desgaste continuo para molinos de martillo de grano y plantas de alimento balanceado.</p>
-                <a href="https://wa.me/59100000000?text=Hola,%20requiero%20cotizar%20martillos%20y%20cribas%20para%20molino" target="_blank" class="btn-ws">
-                    Cotizar por WhatsApp
-                </a>
-            </div>
-
-            <!-- PRODUCTO 4: COLECTORES DE POLVO -->
-            <div class="product-card" data-category="molienda">
-                <span class="tag import">Importación Directa</span>
-                <h3>Colectores de Polvo y Aspiración Industrial</h3>
-                <p class="brands"><strong>Componentes:</strong> Filtros de Mangas, Válvulas Rotativas</p>
-                <p class="desc">Sistemas de captura de fino, mangas filtrantes, canastillos y esclusas rotativas para control de emisiones y norma ATEX.</p>
-                <a href="https://wa.me/59100000000?text=Hola,%20requiero%20cotizacion%20y%20asesoria%20para%20colectores%20de%20polvo" target="_blank" class="btn-ws">
-                    Cotizar por WhatsApp
-                </a>
-            </div>
-
-            <!-- PRODUCTO 5: CENTRÍFUGAS -->
-            <div class="product-card" data-category="bombas">
-                <span class="tag import">Importación Directa</span>
-                <h3>Centrífugas Separadoras de Alta Velocidad</h3>
-                <p class="brands"><strong>Líderes Mundiales:</strong> ALFA LAVAL | PIERALISI</p>
-                <p class="desc">Equipos y repuestos para separación líquido-sólido, clarificación y extracción de aceites agroindustriales.</p>
-                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20equipos/repuestos%20de%20centrifugas%20separadoras" target="_blank" class="btn-ws">
-                    Cotizar por WhatsApp
-                </a>
-            </div>
-
-            <!-- PRODUCTO 6: BOMBAS -->
-            <div class="product-card" data-category="bombas">
-                <span class="tag import">Importación Directa</span>
-                <h3>Sistemas de Bombeo Industrial y Térmico</h3>
-                <p class="brands"><strong>Marcas:</strong> OMEL | FABO BOMBAS | MULTISTEEL</p>
-                <p class="desc">Bombas para transferencia de agua, aceites pesados, condensados y manejo de vapor en calderas y plantas.</p>
-                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20bombas%20industriales%20OMEL/Fabo/Multisteel" target="_blank" class="btn-ws">
-                    Cotizar por WhatsApp
-                </a>
-            </div>
-
-            <!-- PRODUCTO 7: POTENCIA -->
-            <div class="product-card" data-category="potencia">
-                <span class="tag import">Importación Directa</span>
-                <h3>Motores Trifásicos, Reductores y Sensórica</h3>
-                <p class="brands"><strong>Línea Industrial:</strong> WEG | Schneider | Danfoss</p>
-                <p class="desc">Motores de alta eficiencia, reductores mecánicos, variadores de frecuencia (VFD) y sensores de nivel/inductivos.</p>
-                <a href="https://wa.me/59100000000?text=Hola,%20deseo%20cotizar%20motores,%20reductores%20o%20sensorica" target="_blank" class="btn-ws">
-                    Cotizar por WhatsApp
-                </a>
-            </div>
-
+        <div class="product-card" data-category="transmision">
+          <div class="product-img">REPUESTO / COMPONENTE</div>
+          <div class="product-info">
+            <span class="product-tag">Transmisión</span>
+            <div class="product-title">Acoples Flexibles, Cadenas y Poleas</div>
+            <div class="product-desc">Componentes de transmisión mecánica, acoples elásticos de alta resistencia, piñones y bujes industriales.</div>
+            <a href="https://wa.me/59100000000?text=Hola,%20quisiera%20cotizar:%20Acoples%20Flexibles%20y%20Cadenas" class="btn-ws" target="_blank">Cotizar por WhatsApp</a>
+          </div>
         </div>
+
+        <div class="product-card" data-category="hidraulica">
+          <div class="product-img">REPUESTO / COMPONENTE</div>
+          <div class="product-info">
+            <span class="product-tag">Hidráulica/Neumática</span>
+            <div class="product-title">Válvulas, Bombas e Indicadores Hidráulicos</div>
+            <div class="product-desc">Elementos filtrantes, visores de nivel, bombas de engranajes y válvulas direccionales/reguladoras bajo pedido.</div>
+            <a href="https://wa.me/59100000000?text=Hola,%20quisiera%20cotizar:%20Bombas%20y%20Válvulas%20Hidráulicas" class="btn-ws" target="_blank">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="automatizacion">
+          <div class="product-img">REPUESTO / COMPONENTE</div>
+          <div class="product-info">
+            <span class="product-tag">Automatización</span>
+            <div class="product-title">Variadores de Frecuencia y Módulos PLC</div>
+            <div class="product-desc">Equipos de control industrial, pantallas HMI, arrancadores suaves, sensores e instrumentación eléctrica.</div>
+            <a href="https://wa.me/59100000000?text=Hola,%20quisiera%20cotizar:%20Variadores%20y%20Módulos%20PLC" class="btn-ws" target="_blank">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Sección de Marcas Representadas -->
-    <section id="marcas" class="brands-section">
-        <h2>Marcas Oficiales e Importaciones Directas</h2>
+    <!-- Marcas Representadas -->
+    <section id="marcas">
+      <div class="brands-section">
+        <h3 style="color: var(--primary);">Marcas e Importación Directa</h3>
+        <p style="color: #666; font-size: 0.95rem; margin-top: 5px;">Gestionamos importaciones de componentes y repuestos originales con las mejores firmas globales:</p>
         <div class="brands-grid">
-            <div class="brand-item">SKF</div>
-            <div class="brand-item">FAG</div>
-            <div class="brand-item">TIMKEN</div>
-            <div class="brand-item">GATES</div>
-            <div class="brand-item">OPTIBELT</div>
-            <div class="brand-item">CONTINENTAL</div>
-            <div class="brand-item">ALFA LAVAL</div>
-            <div class="brand-item">PIERALISI</div>
-            <div class="brand-item">OMEL</div>
-            <div class="brand-item">FABO BOMBAS</div>
-            <div class="brand-item">BGL</div>
-            <div class="brand-item">MULTISTEEL</div>
+          <span class="brand-chip">SKF</span>
+          <span class="brand-chip">FAG</span>
+          <span class="brand-chip">NTN</span>
+          <span class="brand-chip">NSK</span>
+          <span class="brand-chip">KTR</span>
+          <span class="brand-chip">PARKER</span>
+          <span class="brand-chip">HYDAC</span>
+          <span class="brand-chip">STAUFF</span>
+          <span class="brand-chip">VULKAN</span>
+          <span class="brand-chip">DODGE</span>
         </div>
+      </div>
     </section>
 
-    <!-- Pie de Página -->
-    <footer>
-        <p>&copy; 2026 Importadora Agroindustrial - Santa Cruz, Bolivia. Todos los derechos reservados.</p>
-    </footer>
+    <!-- Ingeniería e Integración -->
+    <section id="ingenieria">
+      <h2 class="section-title">Respaldo de Ingeniería & Soporte Técnico</h2>
+      <p style="text-align: center; color: #555; max-width: 800px; margin: 0 auto 25px;">
+        Garantizamos la disponibilidad operacional integrando el suministro de insumos con servicios técnicos especializados.
+      </p>
+      <div class="services-summary">
+        <div class="service-box">
+          <h4>Mantenimiento Predictivo</h4>
+          <ul>
+            <li>Análisis de Vibraciones Categ. II</li>
+            <li>Alineación Láser de Ejes y Poleas</li>
+            <li>Termografía e Inspección Infrarroja</li>
+            <li>Ultrasonido Industrial</li>
+          </ul>
+        </div>
+        <div class="service-box">
+          <h4>Montajes & Automatización</h4>
+          <ul>
+            <li>Montaje e Instalación de Tableros</li>
+            <li>Programación y Calibración</li>
+            <li>Corrección de Factor de Potencia (UPS)</li>
+          </ul>
+        </div>
+        <div class="service-box">
+          <h4>Proyectos Atendidos</h4>
+          <ul>
+            <li>Refinerías y Cemento</li>
+            <li>Plantas de Alimentos y Balanceados</li>
+            <li>Acopio y Procesamiento de Granos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+  </div>
+
+  <footer>
+    <p><strong>IMPORTADORA AGROINDUSTRIAL</strong> | Santa Cruz de la Sierra, Bolivia</p>
+    <p>Contacto / WhatsApp Directo: +591 00000000</p>
+    <p style="font-size: 0.8rem; margin-top: 15px; color: #7f9bbd;">&copy; 2026 Catálogo de Importaciones B2B. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function filterCategory(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterProducts() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('.product-title').innerText.toLowerCase();
+        const desc = card.querySelector('.product-desc').innerText.toLowerCase();
+        const tag = card.querySelector('.product-tag').innerText.toLowerCase();
+
+        if (title.includes(input) || desc.includes(input) || tag.includes(input)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
